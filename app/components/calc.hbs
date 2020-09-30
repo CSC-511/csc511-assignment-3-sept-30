@@ -1,0 +1,43 @@
+<h2>Daniel Dolan Assignment 3 CSC 511</h2>
+<br>
+<h4> Please Enter Your Info </h4>
+<div id="center">
+<div>
+<table class='names'>
+    <label>Add a name: </label>
+    <input id="name" value={{currentName}} type="string" oninput={{action changeName}}>
+    <label>Add an Event </label>
+    <input id="event" value={{currentEvent}} type="string" oninput={{action changeEvent}}>
+    <label> Add the Cost</label>
+    <input id="cost" value={{currentCost}} type="number" oninput={{action changeCost}}>
+    <button onclick={{action addToAllInfo this.currentName this.currentEvent this.currentCost}}>Submit</button>
+     {{!-- <ul class='peopleDisplay'>
+        <br>
+        <i>Guests splitting check:</i>
+        {{#each this.peopleList key="@index" as |val index|}}
+            <li>
+                {{val}}
+                <button onClick={{action clearIndex index}}>-</button>
+            </li>
+        {{/each}}
+    </ul>  --}}
+</table>
+</div>
+<ul>
+            {{#each AllInfo as |person index|}}
+                
+               <p> -{{person.Name}} paid {{person.Cost}} for {{person.Event}}.
+                <button onClick={{action clearIndex index}}>-</button></p>
+                
+            {{/each}}  
+        </ul>
+<br><br><br><br><br><br>
+<p>The Current Total of the expenses are: ${{sum costList}}  </p>
+<p>The average price Owed ${{avg costList}}  </p>
+{{#each AllInfo as |person index|}}
+                <p style="color:green;"> {{owed peopleList costList index}}</p>
+                <p style="color:red;">   {{owe peopleList costList index}}</p>
+            {{/each}}  
+{{!-- <p>{{owe peopleList costList}}  </p> --}}
+</div>
+
