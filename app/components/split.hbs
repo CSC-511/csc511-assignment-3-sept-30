@@ -1,0 +1,48 @@
+<div>
+  <div class="person">
+    <input
+        id="name"
+        value={{currentValue}}
+        type="string"
+        oninput={{action changeValueName}}
+    >
+    <br>
+    <button onclick={{action addPerson}}>Add Person</button>
+    <button onclick={{action clearArray}}>Clear Array</button>
+  </div>
+    
+  <div class="calculator">
+    <ul>
+    {{#each this.listOfPeople key="@index" as |person index|}}
+      <li>
+        {{person.name}}
+        <button onclick={{action clearArrayIndex index}}>-</button>
+        <input
+            id="purchase"
+            placeholder=0
+            value={{current}}
+            type="number"
+            oninput={{action changeValue index}}
+        >
+      </li>
+    {{/each}}
+    </ul>
+  </div>
+
+  <div class="result">
+    <ul>
+    {{#each this.listOfPeople key="@index" as |person index|}}
+      <li>
+        {{person.name}} {{person.purchase}}
+        {{#if (gt person.purchase (split-cost listOfPeople))}}
+          <p>{{person.name}} is owed {{diff person.purchase (split-cost listOfPeople)}}$ from {{owes (split-cost listOfPeople) listOfPeople}}</p>
+        {{else if (eq person.purchase (split-cost listOfPeople)) }}
+          <p>This person owe's nothing</p>
+        {{else}}
+          <p>{{person.name}} owes {{diff (split-cost listOfPeople) person.purchase}}$ to {{owed (split-cost listOfPeople) listOfPeople}}</p>
+        {{/if}}
+      </li>
+    {{/each}}
+    </ul>
+  </div>
+</div>

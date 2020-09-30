@@ -1,0 +1,44 @@
+div{
+    background-color:  aquamarine;
+}
+.person {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    background-color:;
+}
+
+input{
+    height: 25px;
+    border-radius: 10px;
+}
+
+.calculator{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.calculator ul {
+    list-style-type: none;
+    padding: 0;
+    background-color: #ffb3b3;
+}
+
+.result {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.result ul{
+    list-style-type: none;
+    padding: 0;
+    background-color: #b3ffe6;
+    width: 30%;
+}
+
+li {
+    padding: 5px;
+}
