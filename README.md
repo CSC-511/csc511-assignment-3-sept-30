@@ -1,7 +1,6 @@
 # assignment-3-final
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+Calculator made to add spending event and evenly divide them among participants. Form handles name, event, and amount spent. Form has "validation" so all inputs have to inputed inorder for the add button to work. After an input is made, a tally up button will appear (also, final list will appear). However, implemented EC where the app tally's up automatically. The final list color codes person who is owed in green and person who owes in red. 
 
 ## Prerequisites
 
@@ -14,8 +13,8 @@ You will need the following things properly installed on your computer.
 
 ## Installation
 
-* `git clone <repository-url>` this repository
-* `cd assignment-3-final`
+* `git clone <repository-url>` this repository (https://github.com/dsobolev98/csc511-assignment-3-sept-30.git)
+* `cd csc511-assignment-3-sept-30`
 * `npm install`
 
 ## Running / Development
