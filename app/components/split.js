@@ -10,7 +10,6 @@ export default class SplitComponent extends Component {
 
     @tracked listOfPeople = [];
     @tracked currentValue;
-    @tracked average = 0;
 
     constructor(){
         super(...arguments);
@@ -59,10 +58,5 @@ export default class SplitComponent extends Component {
         this.owed = [];
         this.listOfPeople[index].purchase =  event.target.value;
         this.listOfPeople = this.listOfPeople;
-    }
-
-    updateAverage(number){
-        this.average = number;
-        console.log(this.average);
     }
 }
