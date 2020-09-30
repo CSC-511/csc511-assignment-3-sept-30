@@ -19,7 +19,11 @@ export default class SplitComponent extends Component {
     addPerson() {
         let name = this.currentValue;
         let unique = true;
-        if(this.listOfPeople.length > 0){
+        if(this.listOfPeople.length > 9){
+            alert("Only 10 names at a time can be added to the list!");
+            unique = false;
+        }
+        else if(this.listOfPeople.length > 0){
             this.listOfPeople.forEach(person => {
                 if(person.name === name){
                     alert("Please use a unique name!");

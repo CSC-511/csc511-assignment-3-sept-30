@@ -1,4 +1,5 @@
 <div>
+  <h1>Universal Cost Splitter</h1>
   <div class="person">
     <input
         id="name"
@@ -7,8 +8,8 @@
         oninput={{action changeValueName}}
     >
     <br>
-    <button onclick={{action addPerson}}>Add Person</button>
-    <button onclick={{action clearArray}}>Clear Array</button>
+    <button class="add" onclick={{action addPerson}}>Add Person</button>
+    <button class="clear" onclick={{action clearArray}}>Clear Array</button>
   </div>
     
   <div class="calculator">
@@ -16,7 +17,7 @@
     {{#each this.listOfPeople key="@index" as |person index|}}
       <li>
         {{person.name}}
-        <button onclick={{action clearArrayIndex index}}>-</button>
+        <button class="clear" onclick={{action clearArrayIndex index}}>-</button>
         <input
             id="purchase"
             placeholder=0
@@ -33,13 +34,13 @@
     <ul>
     {{#each this.listOfPeople key="@index" as |person index|}}
       <li>
-        {{person.name}} {{person.purchase}}
+        <p>{{person.name}} contributed {{person.purchase}}$</p>
         {{#if (gt person.purchase (split-cost listOfPeople))}}
-          <p>{{person.name}} is owed {{diff person.purchase (split-cost listOfPeople)}}$ from {{owes (split-cost listOfPeople) listOfPeople}}</p>
+          <p style="color:green;">{{person.name}} is owed {{diff person.purchase (split-cost listOfPeople)}}$ from {{owes (split-cost listOfPeople) listOfPeople}}</p>
         {{else if (eq person.purchase (split-cost listOfPeople)) }}
-          <p>This person owe's nothing</p>
+          <p style="color:blue;">This person owe's nothing</p>
         {{else}}
-          <p>{{person.name}} owes {{diff (split-cost listOfPeople) person.purchase}}$ to {{owed (split-cost listOfPeople) listOfPeople}}</p>
+          <p style="color:red;">{{person.name}} owes {{diff (split-cost listOfPeople) person.purchase}}$ to {{owed (split-cost listOfPeople) listOfPeople}}</p>
         {{/if}}
       </li>
     {{/each}}
