@@ -1,0 +1,58 @@
+<h1>CSC 511 - Assignment 3</h1>
+<h1>Cost Breakdown Calculator</h1>
+<h1>Victoria Fischer</h1>
+
+<br>
+
+<div class='center'>
+
+<h4>Please enter the names in your party, the events to pay for, and cost per event. </h4>
+<div>
+<table class='names'>
+    <label>Name: </label>
+    <input id="name" value={{currentName}} type="string" oninput={{action changeName}}>
+    <label>Event: </label>
+    <input id="event" value={{currentEvent}} type="string" oninput={{action changeEvent}}>
+    <label>Cost: </label>
+    <input id="cost" value={{currentCost}} type="number" oninput={{action changeCost}}>
+    <button onclick={{action addToSplitwiseList this.currentName this.currentEvent this.currentCost}}>Add</button>
+
+</table>
+</div>
+
+    <br><br>
+
+ <i>Splitwise Info:</i>
+
+        <ul>
+            {{#each SplitwiseList as |person index|}}
+                <li>
+                {{person.name}} paid ${{person.cost}} for {{person.event}}.
+                <button onClick={{action clearIndex index}}>-</button>
+                </li>
+            {{/each}}
+        </ul>
+
+        <p>Recurring total: ${{getSum costList}}  </p>
+        <p>{{numPeople nameList}}</p>
+        <p>{{averageOwed nameList costList}}</p>
+
+<br>
+
+              <i>FINAL LIST</i>
+        {{#each SplitwiseList as |person index|}}
+                <p style="color:green;"> {{totalOwed nameList costList index}}</p>
+                <p style="color:red;">{{totalOwes nameList costList index}}</p>
+        {{/each}}
+        
+    
+
+        
+       
+          
+
+                
+
+<br><br>
+
+</div>
