@@ -1,0 +1,71 @@
+{{!-- {{yield}} --}}
+<div class="center">
+    <h2>Yeting Tan - HW #3</h2>
+    <h2>Splitwise Application</h2>
+
+    {{#if this.participantsCanBeAdded}}
+        Participants: <input id="name" type="string" value={{currentParticipant}} oninput={{action changeParticipant}}/>
+        <button onclick={{action addToArrParticipants}}>Add Participant</button>
+    {{else}}
+        <p>You got 10 participants. Can't add more!</p>
+    {{/if}}
+
+    <p>List of Participants:</p>
+    <ul>
+        {{#each arrParticipants as |participant|}}
+            <li>{{participant}}</li>
+        {{/each}}
+    </ul>
+    <hr>
+
+    {{#if this.spendingEventsCanBeAdded}}
+        Spending events: <input id="event" type="string" value={{currentSpendingEvent}} oninput={{action changeSpendingEvent}}/> <br> <br>
+        Who Paid: <input id="paidBy" type="string" value={{currentPaidBy}} oninput={{action changeCurrentPaidBy}}/> <br> <br>
+        Expense: $<input id="expense" type="number" value={{currentExpense}} oninput={{action changeCurrentExpense}}/><br> <br>
+        <button onclick={{action addRowtoEventsTable}}>Add Spending Event</button>
+    {{else if this.spendingEventMoreThanTen}}
+        <p>You got 10 spending events. Can't add more!</p>
+    {{else if this.HasNoParticipant}}
+        <p>Enter at least 1 participant to display the ADD BUTTON for the spending Event</p>
+    {{/if}}
+
+    <hr>
+    <p>Spending Events Table:</p>
+    <table>
+        <tr>
+            <th>Spending Event</th>
+            <th>Paid By</th>
+            <th>Expense</th>
+            <th></th>
+        </tr>
+        {{#each this.rows key="@index" as |row index|}}
+            <tr>
+                <td>{{row.spendingEvent}}</td>
+                <td>{{row.paidBy}}</td>
+                <td>${{row.expense}}</td>
+                <td><button type="button" onclick={{action removeRowFromEventsTable index}}>Delete</button></td>
+            </tr>            
+        {{/each}}
+    </table>
+
+<hr>
+    <br>
+        {{#each (cost-breakdown-calc this.rows this.arrParticipants) as |result|}}
+            {{result.name}}:
+            {{#if (eq result.owedMoney 0)}}
+                <div class="black">does not owe and is not owed </div>
+            {{else}}
+            <div class={{if (gt result.owedMoney 0) "green" "red"}}>
+                {{#each result.transaction as |transaction index|}}
+                    {{#if (gt transaction.credit 0)}}
+                        is owed {{format-number transaction.credit}} by {{transaction.id}} and
+                    {{else}}
+                        owed {{transaction.id}} {{format-number transaction.credit}} 
+                    {{/if}} 
+                {{/each}}
+            </div>
+            {{/if}}
+        {{/each}}
+    <br>
+
+</div>
