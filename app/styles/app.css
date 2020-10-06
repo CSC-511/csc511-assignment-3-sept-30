@@ -1,0 +1,112 @@
+
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  color: #2E3F51;
+  font-family: 'Lora', serif;
+}
+
+.header {
+  width: 100%;
+  background-color: #53BD9C;
+  text-align: center;
+  font-size: 3rem;
+  font-family: 'Barriecito', cursive;
+}
+
+
+label {
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin-right: 1.5rem;
+}
+.prompt
+{
+    text-align: center;
+}
+
+input {
+  margin: .8rem 2rem 2rem 0;
+  display: block;
+  font-size: 0.9rem;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  width: 45%;
+}
+input::placeholder {
+  color: #c1c1c1;
+}
+input:focus {
+  outline:none;
+}
+
+.buttonSpc {
+  margin-top: 1rem;
+  width: 100%;
+}
+.buttonSpc button {
+  margin-top: .6rem;
+  border-radius: 8px;
+  display: inline-block;
+  padding: .5rem 2rem;
+  font-family: 'Lora', serif;
+  font-size: 1.2rem;
+}
+#tally {
+  background-color: #53BD9C;
+  color: #fff;
+}
+#tally:hover {
+  border: 1px solid #53BD9C;
+  background-color: #fff;
+  color: #2E3F51;
+}
+
+#event
+{
+    background-color: orange;
+    color: #fff;
+}
+
+#event:hover
+{
+    background-color:greenyellow;
+    color: #fff;
+    border: 1px solid #f3f052;
+}
+#reset {
+  background-color: #2E3F51;
+  color: white;
+}
+
+#reset:hover {
+    background-color: red;
+    border: 1px solid #f35656;
+    color: #2E3F51;
+  }
+
+  .remove{
+    background-color: red;
+    color: #fff;
+    margin-top: .2rem;
+  border-radius: 1px;
+  display: inline-block;
+  padding: .1rem .1rem;
+  font-family: 'Lora', serif;
+  font-size: 0.8rem;
+  }
+.names 
+{
+  
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 4px solid #53BD9C;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Used some of the CSS code from this bill splitter example https://medium.com/better-programming/lets-build-a-simple-bill-splitter-in-javascript-9c67da4fa18 */

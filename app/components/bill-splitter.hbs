@@ -1,0 +1,55 @@
+<div class="background">
+  <div class="header">Bill Splitter</div>
+
+  <label class="prompt"> Names of the attendies (One at a time)</label>
+  <input 
+        id="name" 
+        value = {{currValue}}
+        type="string" 
+        placeholder="Paul, Mike, etc.."
+        oninput={{action changeName}}
+  >
+   <div class="buttonSpc">
+    <button onclick={{action clearArray}} id="reset">Reset </button>
+     <button onclick={{action addtoPpl}} id="event"> Add Attende </button>
+    </div>
+
+    
+      <ul>
+        
+        {{#each this.numOfPeople key ="@index" as |attende index|}}
+        <li>
+        <div class="names">
+        {{attende.name}}
+        <button class = 'remove'onclick={{action clearArrayAt index}}>remove</button>
+        <input id="bill" placeholder="$0" value={{current}} type="number"
+          oninput={{action changeAmount index}}
+        >
+        </div>
+        </li>
+        {{/each}}
+       
+       </ul>
+   
+
+
+      <ul>
+        <div class="names">
+        {{#each this.numOfPeople key ="@index" as |attende index|}}
+        <li>
+        {{attende.name}} &nbsp; ${{attende.bill}} 
+
+        {{#if (gte attende.bill (get-total numOfPeople))}}
+         <p>{{attende.name}} is getting ${{split attende.bill (get-total numOfPeople)}} from {{person-owes (get-total numOfPeople) numOfPeople}} </p>
+        {{else if (eq attende.bill (get-total numOfPeople)) }}
+          <p>This Attende doesn't owe anybody</p>
+        {{else}}
+          <p>{{attende.name}} owes ${{split (get-total numOfPeople) attende.bill}} to {{received (get-total numOfPeople) numOfPeople}}</p>
+        {{/if}}
+        </li>
+        {{/each}}
+         </div>
+      </ul>
+   
+
+</div>

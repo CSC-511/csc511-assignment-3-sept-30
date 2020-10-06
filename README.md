@@ -1,7 +1,6 @@
 # assignment-3-final
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+This is a Bill Splitter app. It takes in user input one at a time then adds the names and the amount the contributed to a list. Then tallies it all up and show how much a person owes and who they owe 
 
 ## Prerequisites
 
