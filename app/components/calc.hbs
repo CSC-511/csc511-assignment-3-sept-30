@@ -11,24 +11,15 @@
     <label> Add the Cost</label>
     <input id="cost" value={{currentCost}} type="number" oninput={{action changeCost}}>
     <button onclick={{action addToAllInfo this.currentName this.currentEvent this.currentCost}}>Submit</button>
-     {{!-- <ul class='peopleDisplay'>
-        <br>
-        <i>Guests splitting check:</i>
-        {{#each this.peopleList key="@index" as |val index|}}
-            <li>
-                {{val}}
-                <button onClick={{action clearIndex index}}>-</button>
-            </li>
-        {{/each}}
-    </ul>  --}}
+    
 </table>
 </div>
 <ul>
             {{#each AllInfo as |person index|}}
-                
-               <p> -{{person.Name}} paid {{person.Cost}} for {{person.Event}}.
-                <button onClick={{action clearIndex index}}>-</button></p>
-                
+        <li>
+               {{person.Name}} paid {{person.Cost}} for {{person.Event}}
+                <button onClick={{action clearIndex index}}>-</button>
+        </li>
             {{/each}}  
         </ul>
 <br><br><br><br><br><br>
@@ -40,4 +31,3 @@
             {{/each}}  
 {{!-- <p>{{owe peopleList costList}}  </p> --}}
 </div>
-

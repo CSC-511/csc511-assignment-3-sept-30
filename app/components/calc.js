@@ -15,7 +15,7 @@ export default class CalcComponent extends Component {
     constructor(){
         super(...arguments);
     }
-   
+
     sum=0;
     addToAllInfo(val1,val2,val3){
     val3=parseInt(val3)
@@ -29,8 +29,8 @@ export default class CalcComponent extends Component {
     this.peopleList.pushObject(val1);
     this.costList.pushObject(val3);
     };
-    
-    
+
+
 
     changeName(event){
         this.currentName = event.target.value;
@@ -39,7 +39,7 @@ export default class CalcComponent extends Component {
         this.currentCost = event.target.value;
     }
     clearIndex(index){
-        this.peopleList.removeAt(index);
+        this.AllInfo.removeAt(index);
     }
     changeEvent(event){
         this.currentEvent = event.target.value;
@@ -51,4 +51,4 @@ export default class CalcComponent extends Component {
         cost = getElementById("cost");
         return cost;
     }
-}
+} 
