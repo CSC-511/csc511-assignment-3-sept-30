@@ -22,9 +22,14 @@
         <div class="names">
         {{attende.name}}
         <button class = 'remove'onclick={{action clearArrayAt index}}>remove</button>
-        <input id="bill" placeholder="$0" value={{current}} type="number"
-          oninput={{action changeAmount index}}
+        <input 
+        id="bill" 
+        placeholder="$0" 
+        value={{curr}} 
+        type="number"
+        oninput={{action changeAmount index}}
         >
+
         </div>
         </li>
         {{/each}}
@@ -40,11 +45,17 @@
         {{attende.name}} &nbsp; ${{attende.bill}} 
 
         {{#if (gte attende.bill (get-total numOfPeople))}}
+
          <p>{{attende.name}} is getting ${{split attende.bill (get-total numOfPeople)}} from {{person-owes (get-total numOfPeople) numOfPeople}} </p>
+        
         {{else if (eq attende.bill (get-total numOfPeople)) }}
+         
           <p>This Attende doesn't owe anybody</p>
+
         {{else}}
+
           <p>{{attende.name}} owes ${{split (get-total numOfPeople) attende.bill}} to {{received (get-total numOfPeople) numOfPeople}}</p>
+        
         {{/if}}
         </li>
         {{/each}}
