@@ -1,0 +1,78 @@
+<div class="center main">
+    <p id="bold">Enter 2 or more names</p>
+    <input value={{user}} oninput={{action updateUser}}>
+    <button value={{user}} onclick={{action addUser}}>Add</button>
+    <ul>
+        {{#each users as |users index|}}
+        <li>
+            {{users}}
+            <button onclick={{action removeUser index}}>-</button>
+        </li>
+        {{/each}}
+    </ul>
+
+    <p id="bold">Enter your activities</p>
+    <input value={{activity}} oninput={{action updateActivity}}>
+    <button value={{activity}} onclick={{action addActivity}}>Add</button>
+    <ul>
+        {{#each actOutput as |act index|}}
+        <li>
+            {{act}}
+            <button onclick={{action removeAct index}}>-</button>
+        </li>
+        {{/each}}
+    </ul>
+    <button onclick={{action outputUsers}}>Submit</button>
+
+
+    {{#each userOutput as |userOutput index|}}
+        <p>
+            <button onclick={{action removeEverything index}}>-</button>
+            {{userOutput.name}}
+            <input id="amount{{index}}"  placeholder="0" onchange={{action (action addAmount index) value="target.value"}}>
+            <select onchange={{action (action setActivity index) value="target.value"}}>
+                {{#each activities as |act|}}
+                    <option>{{act}}</option>
+                {{/each}}
+            </select>        
+        </p> 
+    {{/each}}
+    {{#if submitted}}  
+        <button onclick={{action calculate}}>Tally Up</button>
+    {{/if}}
+    {{#if clicked}}
+        {{#if notEmpty}}
+    <div>
+        Total = ${{total}}
+        <br>
+        Everyone needs to pay at least ${{needToPay}}
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Paid</th>
+                <th>Activity</th>
+                <th>Owes/Owed</th>        
+            </tr>   
+        {{#each userOutput as |person|}}
+        <tr class={{color person.balance}}>
+            <td>{{person.name}}</td>
+            <td>${{person.amount}}</td>
+            <td>{{person.activity}} </td>   
+            <td>
+                {{format person.balance}}
+            </td>
+        </tr>  
+        {{/each}}
+        </table>
+    </div>
+    <p>
+        <div>
+            <span class ="circle red"></span>  = Owes money
+            <span class ="circle orange"></span>  = Owed money
+            <span class ="circle green"></span>  = Don't owe
+        </div>
+    </p>
+    {{else}}
+        {{/if}}
+    {{/if}}
+</div>
