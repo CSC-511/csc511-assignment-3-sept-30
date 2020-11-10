@@ -1,0 +1,31 @@
+{{#each userInfo as |user index|}}
+<p>
+    <button onclick={{action clearEverything index}}>-</button>
+    {{user.name}}
+    <input id="amount{{index}}" placeholder="0" onchange={{action (action addAmount index) value="target.value"}}>
+    <select onchange={{action (action setActivity index) value="target.value"}}>
+        {{#each userAct as |act|}}
+        <option>{{act}}</option>
+        {{/each}}
+    </select>
+</p>
+{{/each}}
+
+{{#if (showbutton userInfo)}}
+<button onclick= {{action tallyUp}}>Tally Up</button>
+{{/if}}
+
+{{#if clicked}}
+    {{#if notEmpty}}
+    <div>
+        Total = ${{total}}
+    <br>
+        Everyone needs to pay at least ${{needToPay}}
+    </div>
+        
+    <Table @userInfo={{userInfo}} 
+    @userTotal={{total}}>
+    </Table>
+    {{else}}
+    {{/if}}
+{{/if}}

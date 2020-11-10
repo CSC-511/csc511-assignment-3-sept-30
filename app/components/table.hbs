@@ -1,0 +1,25 @@
+<div>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Paid</th>
+            <th>Activity</th>
+            <th>Owes/Owed</th>
+        </tr>
+        {{#each userInfo as |person|}}
+        <tr class={{color person.balance}}>
+            <td>{{person.name}}</td>
+            <td>${{person.amount}}</td>
+            <td>{{person.activity}} </td>
+            <td>{{format person.balance}}</td>
+        </tr>
+        {{/each}}
+    </table>
+</div>
+<p>
+    <div>
+        <span class="circle red"></span> = Owes money
+        <span class="circle orange"></span> = Owed money
+        <span class="circle green"></span> = Don't owe
+    </div>
+</p>

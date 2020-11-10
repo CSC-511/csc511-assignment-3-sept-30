@@ -1,0 +1,69 @@
+body{
+    background-image: url(https://cdn.abcotvs.com/dip/images/6213304_052620-cc-ss-outdoor-picnic-img.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.main{
+    background:rgb(255, 255, 255, .7);
+    border-radius: 10px;
+    width: 40%;
+    padding: 20px;
+    margin: auto;
+    border: solid;
+}
+
+.center{
+    text-align: center;
+}
+
+table { 
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+    background: white; 
+} 
+th, td { 
+    width:150px; 
+    text-align:center; 
+    border:1px solid black; 
+    padding:5px;  
+} 
+
+ul{
+    text-align: center;
+    list-style-position: inside;
+}
+
+button{
+    border: none;
+    border-radius: 8px;
+    padding: 5px 12px;
+}
+
+.red {
+    background-color: #ff2b46;
+}
+
+.green{
+    background-color: #62ff1f;
+}
+
+.orange{
+    background-color: #fca830;
+}
+
+#bold{
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.circle{
+    border: solid black 1px;
+    height: 13px;
+    width: 13px;
+    border-radius: 50%;
+    display: inline-block;
+}

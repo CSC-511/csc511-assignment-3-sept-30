@@ -1,0 +1,33 @@
+<div class="center main">
+    <p id="bold">Enter 2 or more names</p>
+    <input cost-test-name-input value={{user}} oninput={{action updateUser}}>
+    <button cost-test-name-button value={{user}} onclick={{action addUser}}>Add</button>
+    <ul>
+        {{#each users as |users index|}}
+        <li>
+            {{users}}
+            <button onclick={{action removeUser index}}>-</button>
+        </li>
+        {{/each}}
+    </ul>
+
+    <p id="bold">Enter your activities</p>
+    <input value={{activity}} oninput={{action updateActivity}}>
+    <button value={{activity}} onclick={{action addActivity}}>Add</button>
+    <ul>
+        {{#each actOutput as |act index|}}
+        <li>
+            {{act}}
+            <button onclick={{action removeAct index}}>-</button>
+        </li>
+        {{/each}}
+    </ul>
+    <button onclick={{action outputUsers}}>Submit</button>
+
+    {{#if submitted}}
+        <Output 
+        @userInfo = {{userOutput}} 
+        @userAct = {{activities}}>
+        </Output>
+    {{/if}}   
+</div>
