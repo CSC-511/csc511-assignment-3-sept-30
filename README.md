@@ -1,8 +1,6 @@
 # assignment-3-final
-
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
-
+  This splitwise application can calculate the cost of up to 10 participants and 10 spending events. A participant can pay for multiple events. The calculator will breakdown the cost by the number of participants and how much they paid before. In the result, the participants should be able to view how much they owed, and who owes whom.
+  The splitwise will recalculate and update the result, whenever they add a new participant or remove a spending event.
 ## Prerequisites
 
 You will need the following things properly installed on your computer.
